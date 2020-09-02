@@ -33,15 +33,27 @@ application {
 
 dependencies {
   implementation("io.vertx:vertx-lang-kotlin:$vertxVersion")
+  implementation("io.vertx:vertx-web:$vertxVersion")
+  implementation("io.vertx:vertx-web-client:$vertxVersion")
 
   implementation(kotlin("stdlib-jdk8"))
 
+  implementation("ch.qos.logback:logback-classic:1.2.3")
+  implementation("ch.qos.logback:logback-access:1.2.3")
+
   testImplementation("io.vertx:vertx-junit5:$vertxVersion")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
+
+  testImplementation("org.assertj:assertj-core:3.17.1")
 }
 
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions.jvmTarget = "11"
+tasks.withType<KotlinCompile>().all {
+  kotlinOptions {
+//    freeCompilerArgs = listOf("-Xjsr305=strict")
+    jvmTarget = "11"
+  }
+}
+
 
 tasks.withType<ShadowJar> {
   archiveClassifier.set("fat")
