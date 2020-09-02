@@ -1,6 +1,8 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import org.gradle.api.tasks.testing.logging.TestLogEvent.*
-  import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
+import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
+import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   kotlin ("jvm") version "1.3.72"
@@ -20,7 +22,7 @@ val kotlinVersion = "1.3.72"
 val vertxVersion = "3.9.2"
 val junitJupiterVersion = "5.6.0"
 
-val mainVerticleName = "com.github.anddd7.kotlin_vertx_ddd_template.MainVerticle"
+val mainVerticleName = "com.github.anddd7.verticles.MainVerticle"
 val watchForChange = "src/**/*"
 val doOnChange = "./gradlew classes"
 val launcherClassName = "io.vertx.core.Launcher"
@@ -31,13 +33,15 @@ application {
 
 dependencies {
   implementation("io.vertx:vertx-lang-kotlin:$vertxVersion")
+
   implementation(kotlin("stdlib-jdk8"))
+
   testImplementation("io.vertx:vertx-junit5:$vertxVersion")
   testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
 }
 
-  val compileKotlin: KotlinCompile by tasks
-  compileKotlin.kotlinOptions.jvmTarget = "11"
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions.jvmTarget = "11"
 
 tasks.withType<ShadowJar> {
   archiveClassifier.set("fat")

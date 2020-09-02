@@ -1,5 +1,7 @@
 = Kotlin-vertx-ddd-template
 
+a sample based on https://vertx.io/docs/guide-for-java-devs/[Guide for Java Devs].
+
 image:https://img.shields.io/badge/vert.x-3.9.2-purple.svg[link="https://vertx.io"]
 
 This application was generated using http://start.vertx.io
@@ -21,11 +23,15 @@ To run your application:
 ./gradlew clean run
 ```
 
-== Help
+== Reference
 
 * https://vertx.io/docs/[Vert.x Documentation]
 * https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
 * https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
 * https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
 
+== Help
+
+* https://asciidoctor.org/docs/asciidoc-vs-markdown/#comparison-by-example[asciidoc]
+* https://livebook.manning.com/book/vertx-in-action/chapter-1/v-12/[Vert.X in Action]
 

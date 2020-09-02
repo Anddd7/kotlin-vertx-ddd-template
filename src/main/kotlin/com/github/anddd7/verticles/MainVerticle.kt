@@ -1,4 +1,4 @@
-package com.github.anddd7.kotlin_vertx_ddd_template
+package com.github.anddd7.verticles
 
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Promise
